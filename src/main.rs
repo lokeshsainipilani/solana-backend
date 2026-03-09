@@ -18,7 +18,10 @@ async fn main() {
     .unwrap();
 
     let app = Router::new()
-        .merge(routes::keypair::routes());
+        .merge(routes::keypair::routes())
+        .merge(routes::token::routes())
+        .merge(routes::message::routes())
+        .merge(routes::sol::routes());
 
     let addr = SocketAddr::from(([0,0,0,0], port));
     println!("server is running on port {}", port);
